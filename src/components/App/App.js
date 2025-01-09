@@ -32,6 +32,11 @@ export default function App() {
   const removeTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
     setNumberOfTodos(numberOfTodos - 1);
+    for (let todo of todos) {
+      if (todo.id === id && todo.done) {
+        setNumberOfCompletedTodos(numberOfCompletedTodos - 1)
+      }
+    }
   }
 
   const removeAllTodos = () => {

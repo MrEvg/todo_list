@@ -1,14 +1,14 @@
 import './Form.css';
 import {useState} from "react";
 
-export default function Form(props) {
+export default function Form({putTodo}) {
   const [value, setValue] = useState('');
 
   return (
     <form className='form'
           onSubmit={e => {
             e.preventDefault();
-            props.putTodo(value);
+            putTodo(value);
             setValue('');
           }}>
       <input
